@@ -5,8 +5,10 @@ import (
 	"GitHubTrending/db"
 	"GitHubTrending/log"
 	"GitHubTrending/model"
+	"GitHubTrending/model/req"
 	"GitHubTrending/repository"
 	"context"
+	"database/sql"
 	"github.com/lib/pq"
 	"time"
 )
@@ -22,7 +24,7 @@ func NewUserRepo(sql *db.Sql) repository.UserRepo {
 
 }
 
-func (u UserRepoImpl) SaveUser(context context.Context, user model.User) (model.User, error) {
+func (u *UserRepoImpl) SaveUser(context context.Context, user model.User) (model.User, error) {
 	statement := `
 		INSERT INTO users (user_id, email, password, role, full_name, created_at, updated_at)
 		VALUES(:user_id, :email, :password, :role, :full_name, :created_at, :updated_at)
@@ -40,6 +42,22 @@ func (u UserRepoImpl) SaveUser(context context.Context, user model.User) (model.
 			}
 		}
 		return user, banana.SignUpFail
+	}
+
+	return user, nil
+}
+
+func (u *UserRepoImpl) CheckLogin(context context.Context, loginReq req.ReqSignIn) (model.User, error) {
+	var user = model.User{}
+	err := u.sql.Db.GetContext(context, &user, "SELECT * FROM users WHERE email = $1", loginReq.Email)
+
+	if err != nil {
+
+		if err == sql.ErrNoRows {
+			return user, banana.UserNotFound
+		}
+		log.Error(err.Error())
+		return user, err
 	}
 
 	return user, nil

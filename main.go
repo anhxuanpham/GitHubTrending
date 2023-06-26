@@ -8,6 +8,7 @@ import (
 	"GitHubTrending/router"
 	"fmt"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"os"
 )
 
@@ -30,6 +31,7 @@ func main() {
 	defer sql.Close()
 
 	e := echo.New()
+	e.Use(middleware.AddTrailingSlash())
 
 	userHandler := handler.UserHandler{
 		UserRepo: repo_impl.NewUserRepo(sql),

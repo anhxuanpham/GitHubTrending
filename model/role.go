@@ -3,8 +3,8 @@ package model
 type Role int
 
 const (
-	MEMBER Role = iota
-	ADMIN
+	Member Role = iota
+	Admin
 )
 
 func (r Role) String() string {

@@ -38,7 +38,7 @@ func (u *UserHandler) HandleSignUp(c echo.Context) error {
 	}
 
 	hash := security.HashAndSalt([]byte(req.Password))
-	role := model.MEMBER.String()
+	role := model.Member.String()
 
 	userID, err := uuid.NewUUID()
 	if err != nil {
@@ -68,7 +68,17 @@ func (u *UserHandler) HandleSignUp(c echo.Context) error {
 		})
 	}
 
-	user.Password = ""
+	token, err := security.GenToken(user)
+	if err != nil {
+		log.Error(err)
+		return c.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+	user.Token = token
+
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Success",
@@ -118,11 +128,25 @@ func (u *UserHandler) HandleSignIn(c echo.Context) error {
 		})
 	}
 
-	user.Password = ""
+	token, err := security.GenToken(user)
+	if err != nil {
+		log.Error(err)
+		return c.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+	user.Token = token
+
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Success",
 		Data:       user,
 	})
 
+}
+
+func (u *UserHandler) Profile(c echo.Context) error {
+	return nil
 }

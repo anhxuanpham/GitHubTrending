@@ -8,7 +8,6 @@ import (
 	"GitHubTrending/router"
 	"fmt"
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
 	"os"
 )
 
@@ -22,7 +21,7 @@ func main() {
 	fmt.Println("main function")
 	sql := &db.Sql{
 		Host:     "localhost",
-		Port:     5433,
+		Port:     5432,
 		UserName: "postgres",
 		Password: "postgres",
 		DbName:   "golang",
@@ -31,7 +30,7 @@ func main() {
 	defer sql.Close()
 
 	e := echo.New()
-	e.Use(middleware.AddTrailingSlash())
+	//e.Use(middleware.AddTrailingSlash())
 
 	userHandler := handler.UserHandler{
 		UserRepo: repo_impl.NewUserRepo(sql),

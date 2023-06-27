@@ -98,8 +98,7 @@ func (u *UserHandler) HandleSignIn(c echo.Context) error {
 		})
 	}
 
-	validate := validator.New()
-	if err := validate.Struct(req); err != nil {
+	if err := c.Validate(req); err != nil {
 		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,

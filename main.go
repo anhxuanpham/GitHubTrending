@@ -3,6 +3,7 @@ package main
 import (
 	"GitHubTrending/db"
 	"GitHubTrending/handler"
+	"GitHubTrending/helper"
 	"GitHubTrending/log"
 	"GitHubTrending/repository/repo_impl"
 	"GitHubTrending/router"
@@ -21,7 +22,7 @@ func main() {
 	fmt.Println("main function")
 	sql := &db.Sql{
 		Host:     "localhost",
-		Port:     5432,
+		Port:     5433,
 		UserName: "postgres",
 		Password: "postgres",
 		DbName:   "golang",
@@ -30,7 +31,11 @@ func main() {
 	defer sql.Close()
 
 	e := echo.New()
-	//e.Use(middleware.AddTrailingSlash())
+
+	structValidator := helper.NewStructValidator()
+	structValidator.RegisterValidate()
+
+	e.Validator = structValidator
 
 	userHandler := handler.UserHandler{
 		UserRepo: repo_impl.NewUserRepo(sql),

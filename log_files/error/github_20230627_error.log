@@ -42,3 +42,21 @@ time="2023-06-27T22:53:26.016092+07:00" level=error msg="Password must contain a
 time="2023-06-27T22:53:26.436004+07:00" level=error msg="Password must contain at least 8 characters!" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=102
 time="2023-06-27T22:53:27.267095+07:00" level=error msg="Password must contain at least 8 characters!" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=102
 time="2023-06-27T22:53:27.849672+07:00" level=error msg="Password must contain at least 8 characters!" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=102
+time="2023-06-27T22:55:15.655004+07:00" level=error msg="Key: 'ReqSignUp.Password' Error:Field validation for 'Password' failed on the 'required' tag" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=32
+time="2023-06-27T22:55:29.893815+07:00" level=error msg="Password must contain at least 8 characters!" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=102
+time="2023-06-27T22:55:30.834968+07:00" level=error msg="Password must contain at least 8 characters!" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=102
+time="2023-06-27T22:55:31.277598+07:00" level=error msg="Password must contain at least 8 characters!" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=102
+time="2023-06-27T22:55:43.785564+07:00" level=error msg="Email is required! \n Password must contain at least 8 characters!" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=102
+time="2023-06-27T22:56:53.041474+07:00" level=error msg="Key: 'ReqSignUp.FullName' Error:Field validation for 'FullName' failed on the 'required' tag" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=32
+time="2023-06-27T22:58:08.051319+07:00" level=error msg="pq: duplicate key value violates unique constraint \"users_email_key\"" file=/Users/monissant/GolandProjects/GitHubTrending/repository/repo_impl/user_repo_impl.go line=38
+time="2023-06-27T23:17:09.222738+07:00" level=error msg="Password must contain at least 8 characters!" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=104
+time="2023-06-27T23:31:57.594551+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=158
+time="2023-06-27T23:31:58.519745+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=158
+time="2023-06-27T23:31:59.176477+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=158
+time="2023-06-27T23:54:37.509634+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=196
+time="2023-06-27T23:54:39.168406+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=196
+time="2023-06-27T23:54:39.581083+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=196
+time="2023-06-27T23:54:40.041229+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=196
+time="2023-06-27T23:54:40.56451+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=196
+time="2023-06-27T23:54:42.323826+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=196
+time="2023-06-27T23:54:42.760506+07:00" level=error msg="User Does Not Exist" file=/Users/monissant/GolandProjects/GitHubTrending/handler/user_handler.go line=196
